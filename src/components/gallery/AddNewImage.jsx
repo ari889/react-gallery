@@ -8,7 +8,7 @@ const AddNewImage = () => {
    *
    * @param {e} event
    *
-   * This function add a new image at the last element of the images signal data properties
+   * This function add a new image at the last element of the images.value.data properties
    */
   const addNewImage = (e) => {
     e.preventDefault();

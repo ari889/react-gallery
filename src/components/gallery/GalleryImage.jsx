@@ -10,12 +10,12 @@ import { motion } from "framer-motion";
 import { images } from "../../App";
 
 const GalleryImage = ({ item }) => {
-  const { id, src, isFeatured, order } = item; // destructuring object
+  const { id, src, isFeatured, order } = item; // destructuring item
 
   /**
    *
    * @param {*} id
-   * this function get all id from selected checked images and push it to the global signal state
+   * this function get all id from selected checked images and push it to the global signal state for images.value.deletedItems
    */
   const handleChecked = (e) => {
     if (e?.target?.checked) {
@@ -43,7 +43,7 @@ const GalleryImage = ({ item }) => {
     type: "IMAGE", // set drag type
     item: { id, order }, // when I drag then send the id and image as parameter
     collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(), // monitor am I drag it or not
+      isDragging: monitor.isDragging(), // monitor am I drag it or not
     }),
   });
 
@@ -61,7 +61,7 @@ const GalleryImage = ({ item }) => {
       }
     },
     collect: (monitor) => ({
-      isOver: !!monitor.isOver(), // set is over true if hover on the dropped item
+      isOver: monitor.isOver(), // set is over true if hover on the dropped item
     }),
   });
 
