@@ -36,7 +36,7 @@ const AddNewImage = () => {
           id: maxId + parseInt(key) + 1, // Using a combination of maxId and the current key for uniqueness
           src: originalPath,
           isFeatured: existingImages.length === 0 ? true : false,
-          order: maxOrder + key, // Using a combination of maxOrder and the current key for uniqueness
+          order: maxOrder + parseInt(key) + 1, // Using a combination of maxOrder and the current key for uniqueness
         });
       }
     });
