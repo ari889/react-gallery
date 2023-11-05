@@ -15,7 +15,7 @@ const GalleryImages = () => {
   return (
     <div>
       <DndProvider backend={HTML5Backend}>
-        <div className="grid grid-cols-5 gap-4 p-3 transition-all">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 p-3 transition-all">
           {images?.value?.data
             .sort((a, b) => a.order - b.order)
             .map((item) => (
