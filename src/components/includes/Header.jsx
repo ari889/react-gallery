@@ -9,17 +9,22 @@ const Header = () => {
    */
   const handleDelete = (e) => {
     e.preventDefault();
-    images.value = {
-      ...images.value,
-      data: images?.value?.data?.filter(
-        (item) => !images.value.deletedItems.includes(item.id) // if in the images.value.deletedItems then remove it from images.value.data
-      ),
-      deletedItems: [], // make deletedItems array for newly deleted data
-    };
+    let conf = confirm("Are you sure to delete this?");
 
-    if (images?.value?.data?.length > 0) {
-      // the the array has any data
-      images.value.data[0].isFeatured = true; // make the first element of the images.value.data isFeatured true for the feature image
+    if (conf) {
+      // check confirm before delete
+      images.value = {
+        ...images.value,
+        data: images?.value?.data?.filter(
+          (item) => !images.value.deletedItems.includes(item.id) // if in the images.value.deletedItems then remove it from images.value.data
+        ),
+        deletedItems: [], // make deletedItems array for newly deleted data
+      };
+
+      if (images?.value?.data?.length > 0) {
+        // the the array has any data
+        images.value.data[0].isFeatured = true; // make the first element of the images.value.data isFeatured true for the feature image
+      }
     }
   };
   return (
