@@ -66,7 +66,6 @@ export const images = signal({
 });
 
 function App() {
-  console.log(images.value);
   return (
     <>
       <div className="m-3 rounded-md border border-gray-200">
